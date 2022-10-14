@@ -1,10 +1,13 @@
-//getter and setter
+//static methods and properties 
 
 class Person{
     constructor(firstName , lastName , age){
         this.firstName = firstName ; 
         this.lastName = lastName; 
         this.age = age ; 
+    }
+    static classInfo(){
+        return 'this is person class';
     }
      get fullName(){
         return `${this.firstName} ${this.lastName}`
@@ -17,23 +20,22 @@ class Person{
         }
     
 }
+
+eat(){
+    return`${this.firstName} is eating`;
+} 
+isSuperCute(){
+    return this.age <=1;
+}
+isCute(){
+    return true;
+}
 }
 
 
-const person1 = new Person("vedika" , "sangle" , 20);
-console.log(person1.firstName);
-//console.log(person1.fullName());
-// console.log(person1.fullName);
+const person1 = new Person("harshit" , "sharma" , 8);
 
-console.log(person1.firstName);
-console.log(person1.lastName);
+console.log(person1.eat())
 
-// person1.setName("aditi", "sanap");
-
-
-console.log(person1.firstName);
-console.log(person1.lastName);
-
-
-person1.fullName = "mohit vashith "
-
+// const ans = person1.classInfo();
+// console.log(ans);
