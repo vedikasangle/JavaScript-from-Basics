@@ -1,4 +1,5 @@
 //promise ->ek esi value jo hume abhi nahi pata par future me pata chalegi 
+console.log("script start")
 const bucket = ['coffee', 'chips', 'vegetable', 'salt' , 'rice'];
 
 //creating promise
@@ -15,7 +16,7 @@ const friedricepromise = new Promise((resolve, reject)=>{
     if(bucket.includes("vegetables") && bucket.includes("salt") && bucket.includes("rice")){
         resolve("Fried rice");
     } else{
-        reject("could not do it");
+        reject("could not do it"); //we can pass anythinh in this array , etc 
     }
 })
 
@@ -23,17 +24,24 @@ const friedricepromise = new Promise((resolve, reject)=>{
 //promise consume 
 //how to consume is important 
 //then takes callback function as a input 
-friedricepromise.then(
+
+
+friedricepromise.then(  //microtask queues
     //jab promise resolve hoga 
     (myfriedrice)=>{
     console.log("lets eat", myfriedrice)
-}
-, //jab promise reject hoga 
-(error)=>{
+}).catch(
+    (error)=>{
     console.log(error)
+})
+
+setTimeout(()=>{ //callback queues
+    console.log("heyyy")
 }
 )
 
+for(let i = 0 ; i<=100 ; i++){
+    console.log(Math.random(), i)
+}
  
-
-
+console.log("script end")
